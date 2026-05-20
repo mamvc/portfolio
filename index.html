@@ -205,6 +205,8 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--navy);color:var
 #s3 .srow{display:flex;gap:7px}
 #s3 .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
 .chip{background:#0A1E2E;border:1px solid var(--bord);border-radius:3px;padding:4px 10px;font-size:clamp(.65rem,.9vw,.82rem);color:var(--l1);white-space:nowrap}
+#s3 .hub-wrap{margin-top:4px;width:100%}
+#s3 .hub-svg{width:100%;height:auto;display:block}
 #s3 .cr{display:flex;flex-direction:column;gap:clamp(.6rem,1.2vh,.9rem)}
 #s3 .ctcard{padding:clamp(.8rem,1.5vh,1.2rem)}
 #s3 .ctop{display:flex;align-items:center;gap:9px;margin-bottom:9px}
@@ -505,9 +507,52 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--navy);color:var
         <div class="stat" style="flex:1"><div class="sv">25+</div><div class="sl">Countries</div></div>
         <div class="stat" style="flex:1"><div class="sv">15+</div><div class="sl">Years</div></div>
       </div>
-      <div class="chips fu d5">
-        <span class="chip">Houston</span><span class="chip">Shanghai</span><span class="chip">Rotterdam</span><span class="chip">Dubai</span><span class="chip">Middle East</span>
-        <span class="chip" style="background:rgba(54,192,112,.1);border-color:rgba(54,192,112,.35);color:#36C070">Porto · HQ Hub</span>
+      <div class="hub-wrap fu d5">
+        <svg class="hub-svg" viewBox="0 0 520 145" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="hglow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="cglow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <marker id="arr" markerWidth="4" markerHeight="4" refX="2" refY="2" orient="auto">
+              <circle cx="2" cy="2" r="1.5" fill="#C9A84C" opacity=".7"/>
+            </marker>
+          </defs>
+
+          <!-- Spoke lines from Porto (260,105) to each city -->
+          <line x1="260" y1="105" x2="62"  y2="42"  stroke="#C9A84C" stroke-width="1.1" stroke-dasharray="5 3" opacity=".45"/>
+          <line x1="260" y1="105" x2="185" y2="22"  stroke="#C9A84C" stroke-width="1.1" stroke-dasharray="5 3" opacity=".45"/>
+          <line x1="260" y1="105" x2="360" y2="25"  stroke="#C9A84C" stroke-width="1.1" stroke-dasharray="5 3" opacity=".45"/>
+          <line x1="260" y1="105" x2="465" y2="42"  stroke="#C9A84C" stroke-width="1.1" stroke-dasharray="5 3" opacity=".45"/>
+
+          <!-- City dots + labels -->
+          <!-- Houston -->
+          <circle cx="62"  cy="42"  r="5" fill="#C9A84C" filter="url(#cglow)"/>
+          <text x="62"  y="30"  text-anchor="middle" fill="#B8C8D4" font-size="9" font-family="DM Sans,sans-serif" font-weight="600">Houston</text>
+
+          <!-- Rotterdam -->
+          <circle cx="185" cy="22"  r="5" fill="#C9A84C" filter="url(#cglow)"/>
+          <text x="185" y="13"  text-anchor="middle" fill="#B8C8D4" font-size="9" font-family="DM Sans,sans-serif" font-weight="600">Rotterdam</text>
+
+          <!-- Dubai -->
+          <circle cx="360" cy="25"  r="5" fill="#C9A84C" filter="url(#cglow)"/>
+          <text x="360" y="15"  text-anchor="middle" fill="#B8C8D4" font-size="9" font-family="DM Sans,sans-serif" font-weight="600">Dubai</text>
+
+          <!-- Shanghai -->
+          <circle cx="465" cy="42"  r="5" fill="#C9A84C" filter="url(#cglow)"/>
+          <text x="465" y="30"  text-anchor="middle" fill="#B8C8D4" font-size="9" font-family="DM Sans,sans-serif" font-weight="600">Shanghai</text>
+
+          <!-- Porto HQ Hub — dominant anchor node -->
+          <!-- Outer pulse ring -->
+          <circle cx="260" cy="105" r="30" fill="rgba(54,200,112,.05)" stroke="#36C070" stroke-width=".8" stroke-dasharray="3 3" opacity=".5"/>
+          <!-- Mid ring -->
+          <circle cx="260" cy="105" r="22" fill="rgba(54,200,112,.08)" stroke="#36C070" stroke-width="1.2" opacity=".6"/>
+          <!-- Core -->
+          <circle cx="260" cy="105" r="15" fill="#071828" stroke="#36C070" stroke-width="2" filter="url(#hglow)"/>
+          <!-- Anchor symbol -->
+          <text x="260" y="111" text-anchor="middle" fill="#36C070" font-size="15" font-family="DM Sans,sans-serif">⚓</text>
+          <!-- Porto label below -->
+          <text x="260" y="135" text-anchor="middle" fill="#36C070" font-size="10" font-family="DM Sans,sans-serif" font-weight="700" letter-spacing="2">PORTO</text>
+          <text x="260" y="145" text-anchor="middle" fill="#7A9AAF" font-size="7.5" font-family="DM Sans,sans-serif" letter-spacing="1.5">HQ HUB</text>
+        </svg>
       </div>
     </div>
     <div class="cr">
