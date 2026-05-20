@@ -383,15 +383,39 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--navy);color:var
           <div class="cchip">Houston</div><div class="cchip">Shanghai</div>
           <div class="cchip">Rotterdam</div><div class="cchip">Dubai</div>
         </div>
-        <div class="anch">
-          <svg width="70" height="70" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="22" r="12" stroke="#C9A84C" stroke-width="3" fill="none"/>
-            <circle cx="50" cy="22" r="5" fill="#C9A84C"/>
-            <line x1="50" y1="34" x2="50" y2="88" stroke="#C9A84C" stroke-width="3"/>
-            <line x1="26" y1="55" x2="74" y2="55" stroke="#C9A84C" stroke-width="3"/>
-            <path d="M26,55 Q16,68 22,82 Q28,92 38,88 L50,88" stroke="#C9A84C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M74,55 Q84,68 78,82 Q72,92 62,88 L50,88" stroke="#C9A84C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- Spoke lines converging down to Porto -->
+        <svg width="100%" viewBox="0 0 280 28" style="display:block;margin-top:4px" xmlns="http://www.w3.org/2000/svg">
+          <line x1="70"  y1="0" x2="140" y2="26" stroke="#C9A84C" stroke-width=".9" stroke-dasharray="4 3" opacity=".45"/>
+          <line x1="210" y1="0" x2="140" y2="26" stroke="#C9A84C" stroke-width=".9" stroke-dasharray="4 3" opacity=".45"/>
+          <line x1="140" y1="0" x2="140" y2="26" stroke="#C9A84C" stroke-width=".9" stroke-dasharray="4 3" opacity=".45"/>
+        </svg>
+        <!-- Porto HQ Hub block -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(54,200,112,.07);border:1.5px solid #36C070;border-radius:5px;padding:8px 14px;margin-top:0">
+          <!-- Proper nautical anchor SVG -->
+          <svg width="32" height="42" viewBox="0 0 60 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Ring -->
+            <circle cx="30" cy="10" r="8" stroke="#36C070" stroke-width="3" fill="none"/>
+            <!-- Shaft -->
+            <line x1="30" y1="18" x2="30" y2="68" stroke="#36C070" stroke-width="3" stroke-linecap="round"/>
+            <!-- Stock (crossbar) -->
+            <line x1="8" y1="28" x2="52" y2="28" stroke="#36C070" stroke-width="3" stroke-linecap="round"/>
+            <!-- Left stock end cap -->
+            <circle cx="8"  cy="28" r="3" fill="#36C070"/>
+            <!-- Right stock end cap -->
+            <circle cx="52" cy="28" r="3" fill="#36C070"/>
+            <!-- Crown -->
+            <circle cx="30" cy="68" r="3.5" fill="#36C070"/>
+            <!-- Left fluke -->
+            <path d="M30,68 Q8,68 6,52" stroke="#36C070" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="6"  cy="52" r="3" fill="#36C070"/>
+            <!-- Right fluke -->
+            <path d="M30,68 Q52,68 54,52" stroke="#36C070" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="54" cy="52" r="3" fill="#36C070"/>
           </svg>
+          <div>
+            <div style="color:#36C070;font-size:clamp(.82rem,1.2vw,1rem);font-weight:700;letter-spacing:.18em">PORTO</div>
+            <div style="color:#7A9AAF;font-size:clamp(.6rem,.8vw,.72rem);letter-spacing:.12em;margin-top:1px">HQ HUB</div>
+          </div>
         </div>
       </div>
     </div>
