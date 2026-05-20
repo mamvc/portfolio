@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Total Command Framework | M.A. Marine Veritas Consulting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -295,15 +295,159 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--navy);color:var
 .wmc{font-size:clamp(.68rem,.9vw,.82rem);color:var(--gold);margin-top:3px}
 
 /* ─── RESPONSIVE ─── */
+
+/* ══ 900px — Tablet landscape ══ */
 @media(max-width:900px){
-  #s1 .inner,#s2 .inner,#s3 .inner,#s4 .inner,#s5 .inner,#s6 .inner{grid-template-columns:1fr}
+  #s1 .inner,#s2 .inner,#s3 .inner,
+  #s4 .inner,#s5 .inner,#s6 .inner{grid-template-columns:1fr}
   #s4 .pillars{grid-template-columns:1fr 1fr}
   .igrid{grid-template-columns:1fr 1fr}
+  /* Let slide main area scroll if content taller than viewport */
+  .smain{overflow-y:auto;overflow-x:hidden}
 }
+
+/* ══ 768px — Tablet portrait / large phone ══ */
+@media(max-width:768px){
+  :root{
+    --px:clamp(1.2rem,4vw,2rem);
+    --py:clamp(.9rem,2.5vh,1.8rem);
+    --gap:.85rem;
+  }
+  /* Hide nav dots — use swipe/scroll instead */
+  #ndots{display:none}
+  /* Simplify header — hide contact links, keep logo */
+  .hr .hci{display:none}
+  /* Footer: keep brand, drop status pills */
+  .sfl{display:none}
+  /* Profile card: tighter layout */
+  #s2 .ptop{gap:8px}
+  /* Stat row wraps gracefully */
+  .srow{flex-wrap:wrap;gap:.6rem}
+  .stat{min-width:5rem}
+  /* Pills wrap more freely */
+  .chips,.pills{gap:4px}
+  /* Hub SVG: don't let it get too tall */
+  #s3 .hub-svg{max-height:130px}
+}
+
+/* ══ 640px — Phone landscape / small tablet ══ */
+@media(max-width:640px){
+  /* Switch from full-page snap to natural scroll —
+     prevents content being clipped on phones */
+  html{scroll-snap-type:none;overflow-y:auto}
+  .slide{
+    height:auto;
+    min-height:100dvh;
+    overflow:visible;
+    scroll-snap-align:none;
+  }
+  .smain{overflow:visible;height:auto;flex:none}
+  .content{height:auto;justify-content:flex-start}
+
+  :root{--px:1.1rem;--py:.9rem;--gap:.7rem}
+
+  /* Pillar cards: 1 column on small screens */
+  #s4 .pillars{grid-template-columns:1fr}
+
+  /* Inner grids all single column */
+  #s1 .cgrid{grid-template-columns:1fr 1fr}
+  #s2 .sgrid{grid-template-columns:1fr 1fr}
+
+  /* Service grid single column */
+  .igrid{grid-template-columns:1fr}
+
+  /* Cards: reduce internal padding */
+  .card{padding:clamp(.7rem,2vw,1.1rem)}
+  .pcard{padding:clamp(.7rem,2vw,1.1rem)}
+  .svc,.icard,.gcard{padding:.8rem}
+
+  /* Hero and CTA fonts: tighten on narrow screens */
+  #s1 .hero{font-size:clamp(2.2rem,9vw,3.5rem)}
+  #s6 .hl6{font-size:clamp(1.9rem,8vw,3rem)}
+
+  /* CTA buttons: stack vertically */
+  .btns{flex-direction:column;gap:.5rem;align-items:flex-start}
+  .bts,.bto{width:100%;justify-content:center}
+
+  /* Profile card: horizontal layout → stack on phone */
+  #s2 .ptop{flex-direction:column;align-items:flex-start;gap:6px}
+
+  /* Porto hub block text: tighter */
+  #s3 .hub-wrap{margin-top:6px}
+  #s3 .hub-svg{max-height:110px}
+
+  /* Slide footer: simplify further */
+  .sftr{padding:0 1rem}
+  .sfb{display:none}
+}
+
+/* ══ 480px — Phone portrait ══ */
+@media(max-width:480px){
+  :root{--px:.9rem;--py:.7rem;--gap:.6rem}
+
+  /* Header: absolute minimum */
+  .bs{display:none}           /* hide subtitle under brand name */
+  #hdr{padding:0 .9rem}
+  .lc{width:32px;height:32px}
+
+  /* All grids: single column */
+  #s1 .cgrid,
+  #s2 .sgrid,
+  #s4 .pillars,
+  .igrid{grid-template-columns:1fr}
+
+  /* Chip rows wrap to 2 per row max */
+  .chips,.pills{display:flex;flex-wrap:wrap;gap:3px}
+  .chip,.pill{font-size:.7rem;padding:3px 8px}
+
+  /* Stats: 3-across stays, just smaller */
+  .srow{gap:.4rem}
+  .sv{font-size:clamp(1.4rem,6vw,2rem)}
+  .sl{font-size:.65rem}
+
+  /* Reduce section headings */
+  .hl{font-size:clamp(1.6rem,7vw,2.4rem)}
+  .hl6{font-size:clamp(1.6rem,7vw,2.4rem)}
+
+  /* Pillar card number: smaller */
+  .pnum{font-size:clamp(1.4rem,5vw,2rem)}
+
+  /* Hub diagram: compact */
+  #s3 .hub-svg{max-height:95px}
+
+  /* Porto HQ block: tighter padding */
+  #s3 .hub-wrap svg{width:26px;height:34px}
+}
+
+/* ══ 375px — Small phones (iPhone SE, etc.) ══ */
+@media(max-width:375px){
+  :root{--px:.75rem;--py:.6rem;--gap:.5rem}
+  .hl{font-size:clamp(1.4rem,8vw,2rem)}
+  #s1 .hero{font-size:clamp(1.8rem,10vw,2.8rem)}
+  .card{padding:.6rem}
+  #s3 .hub-svg{max-height:80px}
+}
+
+/* ══ Short landscape (phone rotated) ══ */
+@media(max-height:500px){
+  :root{--py:.5rem;--gap:.45rem}
+  .slide{height:auto;min-height:100dvh;overflow:visible;scroll-snap-align:none}
+  html{scroll-snap-type:none}
+  .smain{overflow:visible;height:auto;flex:none}
+  #s1 .hero,#s6 .hl6{font-size:clamp(1.6rem,5vw,2.8rem)}
+  .sftr{display:none}
+  #s4 .pillars{grid-template-columns:repeat(3,1fr)}
+  .igrid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* ══ Medium height squeeze (laptops, iPad) ══ */
 @media(max-height:650px){
   :root{--py:1rem;--gap:.7rem}
   #s1 .hero,#s6 .hl6{font-size:clamp(2rem,5vw,3.8rem)}
+  .smain{overflow-y:auto}
 }
+
+/* ══ Reduced motion ══ */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
   .slide .fu,.slide .fi{opacity:1;transform:none}
